@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block head %}
+  <title>{{name}}| Home </title>
+{% endblock %}
+
+{% block script %}
+    <script src="https://threejs.org/build/three.js"></script>
+  <script src="{{ url_for('static', filename= 'vanta.fog.min.js') }}"></script>
+  <script>
+  VANTA.FOG({
+    el: "body",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    highlightColor: 0x73a2e6,
+    midtoneColor: 0xece9f2,
+    lowlightColor: 0x493c7f,
+    baseColor: 0xebe9f0,
+    blurFactor: 0.53,
+    speed: 1.00,
+    zoom: 1
+    })
+    </script>
+{% endblock %}
