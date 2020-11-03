@@ -1,175 +1,189 @@
-<html>
-<head>
-    <title>Risa Iwazaki </title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href='/static/home.css' />
-</head>
-<body>
+<!DOCTYPE html>
+<html lang="en">
 
+<!--
+  Setting up variable used in template
+  "projects" is python object
+-->
+{% set source = projects.get_source() %} <!-- source of project dict -->
+{% set name = source["name"] %}
+{% set github = source["github"] %}
+{% set linkedin = source["linkedin"] %}
+{% set twitter = source["twitter"] %}
+{% set youtube = source["youtube"] %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Drop down for selecting from navigation support, only works on 1st element -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- Style used to support Icons  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Extender should define Title Block -->
+    {% block head %}
+    <title></title>
+    {% endblock %}
+</head>
+
+{% block body %}
+<body>
+<!-- Navigation Bar from bootstrap with dropdown -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Risa</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="/">{{name}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
+    <!-- Look for href (root) and associated names  -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <div class="navbar-nav">
+            <li class="nav-item">
                 <a class="nav-link" href="/hello/">Hello Series</a>
-                <li class="nav-item">
-                    <a class="nav-link" href="/flask/">Flask Series</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="https://github.com/risaiwazaki">Github </a>
-
-                    </div>
-                </li>
-
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/flask/">Flask Project</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/all/">About</a>
+            </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
     </div>
 </nav>
 
-
-<a href="http://127.0.0.1:3000/sub">page2</a>
-<script
-        src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-</body>
-</html>
-
 <div class="container-fluid">
-
-    <div class="row justify-content-end" style="padding-top: 2%; padding-bottom: 2%; padding: 2%;">
-
+    <div class="row justify-content-end" style="padding-top: 2%; padding-bottom: 2%;">
         <div class="col-2" style="text-align: right;">
-            <h5>Risa Iwazaki</h5>
-
-            <a href="https://github.com/valeriemiliteeva" target="_blank"><i class="fa fa-github"></i></a>
-            <a href="https://twitter.com/NighthawkCoding" target="_blank"><i class="fa fa-twitter"></i></a>
+            {% block info %}
+            <!-- notice jinja style variables used in href's -->
+            <h5>{{name}}</h5>
+            <a href={{github}} target="_blank"><i class="fa fa-github"></i></a>
+            <!-- <a href={{linkedin}} target="_blank"><i class="fa fa-linkedin" ></i></a> -->
+            <a href={{youtube}} target="_blank"><i class="fa fa-youtube-play"></i></a>
+            <a href={{twitter}} target="_blank"><i class="fa fa-twitter"></i></a>
+            {% endblock %}
         </div>
-
     </div>
 
-    <div class="product" style="margin-top: 5%;">
-        <div class="row" style="padding: 10%; padding-top: 0%; padding-bottom: 5%;">
+    <div class="product" style="margin-top: 2%;">
+        <div class="row" style="padding-top: 10%; padding-bottom: 5%;">
 
             <div class="col-8" >
-                <h1>Risa's Project Site</h1>
+                {% block title %}
+                {% endblock %}
             </div>
 
         </div>
 
         <div class="row" style="padding-left: 10%;">
             <div class="col-4">
-                <a href="https://padlet.com/risaiwazaki55/ox7mw5z9syhnyw7w" class="btn">Padlet</a>
+                {% block link1 %}
+                {% endblock %}
             </div>
 
             <div class="col-4">
-                <a href="https://repl.it/join/gevuqqqn-risaiwazaki" class="btn">Repl.it</a>
+                {% block link2 %}
+                {% endblock %}
+            </div>
+
+            <div class="col-4">
+                {% block link3 %}
+                {% endblock %}
             </div>
 
         </div>
 
     </div>
-
 </div>
-
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+{% endblock %}
 
+{% block script %}
 <script src="https://threejs.org/build/three.js"></script>
-<script src="{{ url_for('static', filename= 'vanta.fog.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vanta.birds.min.js') }}"></script>
 <script>
-  VANTA.FOG({
-    el: "body",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    highlightColor: 0x73a2e6,
-    midtoneColor: 0xece9f2,
-    lowlightColor: 0x493c7f,
-    baseColor: 0xebe9f0,
-    blurFactor: 0.53,
-    speed: 1.00,
-    zoom: 1
-    })
-  </script>
 
-</html>
+    VANTA.BIRDS({
+        el: "body",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        wingSpan: 40.0
+    })
+</script>
+{% endblock %}
 
 {% block style %}
 <style>
-      html, body {
-          margin: 0;
-          height: 100%;
-          color: white;
-      }
+    html, body {
+        margin: 0;
+        height: 100%;
+        color: white;
+    }
 
-      h1{
-          font-size: 5em;
-      }
+    h1{
+        font-size: 5em;
+    }
 
+    .fa{
+        font-size: 3em;
+        letter-spacing: 1em;
+        transition: all .2s;
+        color: white;
+    }
 
-      .fa{
-          font-size: 3em;
-          letter-spacing: 1em;
-          transition: all .2s;
-          color: white;
-      }
+    .fa:hover{
+        transform: translateY(10px);
+    }
 
-      .fa:hover{
-          transform: translateY(10px);
-      }
+    .fa-youtube-play:hover{
+        color: #cc0000;
+    }
 
-      .fa-youtube-play:hover{
-          color: #cc0000;
-      }
+    .fa-twitter:hover{
+        color: #1da1f2;
+    }
 
-      .fa-twitter:hover{
-          color: #1da1f2;
-      }
+    .fa-github:hover{
+        color: #000000;
+    }
 
-      .fa-github:hover{
-          color: #000000;
-      }
+    .btn:link,
+    .btn:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 15px 40px;
+        display: inline-block;
+        border-radius: 100px;
+        transition: all .2s;
+        position: absolute;
+        color: white;
+        font-size: 2.5em;
+    }
 
+    .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 40px rgba(255, 255, 255, 0.2);
+    }
 
-      .btn:link,
-      .btn:visited {
-          text-transform: uppercase;
-          text-decoration: none;
-          padding: 15px 40px;
-          display: inline-block;
-          border-radius: 100px;
-          transition: all .2s;
-          position: absolute;
-          color: white;
-          font-size: 2.5em;
-      }
-
-      .btn:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 20px 40px rgba(255, 255, 255, 0.2);
-      }
-
-      .btn:active {
-          transform: translateY(-1px);
-          box-shadow: 0 5px 10px rgba(255, 255, 255, 0.2);
-      }
-
-
-  </style>
+    .btn:active {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px rgba(255, 255, 255, 0.2);
+    }
+</style>
 {% endblock %}
 
 </html>
