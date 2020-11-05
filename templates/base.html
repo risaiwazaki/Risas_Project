@@ -1,166 +1,170 @@
-<!DOCTYPE html>
-<!--
-  Setting up variable used in template
-  "projects" is python object
--->
-{% set source = projects.get_source() %} <!-- source of project dict -->
-{% set name = source["name"] %}
-{% set github = source["github"] %}
-{% set linkedin = source["linkedin"] %}
-{% set twitter = source["twitter"] %}
-{% set youtube = source["youtube"] %}
 
-
-<html lang="en">
+<!doctype html>
+<html lang="en-US" class="no-js">
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    {% block head %}
-    <title></title>
-    {% endblock %}
-</head>
+    <meta charset="UTF-8">
+    <title>Risa's Website - Making Code Come To Life </title>
 
-<body>
-<!-- Navigation Bar from bootstrap -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">{{name}}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="/hello/">Hello Series</a>
-            <a class="nav-link" href="/flask/">Flask Project</a>
-        </div>
-    </div>
-</nav>
-<div class="container-fluid">
-    <div class="row justify-content-end" style="padding-top: 2%; padding-bottom: 2%;">
-        <div class="col-2" style="text-align: right;">
-            {% block info %}
-            <!-- notice jinja style variables used in href's -->
-            <h5>{{name}}</h5>
-            <a href={{github}} target="_blank"><i class="fa fa-github"></i></a>
-            <!-- <a href={{linkedin}} target="_blank"><i class="fa fa-linkedin" ></i></a> -->
-            <a href={{youtube}} target="_blank"><i class="fa fa-youtube-play"></i></a>
-            <a href={{twitter}} target="_blank"><i class="fa fa-twitter"></i></a>
-            {% endblock %}
-        </div>
-    </div>
-
-    <div class="product" style="margin-top: 2%;">
-        <div class="row" style="padding-top: 10%; padding-bottom: 5%;">
-
-            <div class="col-8" >
-                {% block title %}
-                {% endblock %}
-            </div>
-
-        </div>
-
-        <div class="row" style="padding-left: 10%;">
-            <div class="col-4">
-                {% block link1 %}
-                {% endblock %}
-            </div>
-
-            <div class="col-4">
-                {% block link2 %}
-                {% endblock %}
-            </div>
-
-            <div class="col-4">
-                {% block link3 %}
-                {% endblock %}
-            </div>
-
-        </div>
-
-    </div>
-</div>
-</body>
-
-{% block script %}
-<script src="https://threejs.org/build/three.js"></script>
-<script src="{{ url_for('static', filename='vanta.birds.min.js') }}"></script>
-<script>
-
-    VANTA.BIRDS({
-        el: "body",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        wingSpan: 40.0
-    })
-</script>
-{% endblock %}
-
-{% block style %}
-<style>
-    html, body {
-        margin: 0;
-        height: 100%;
-        color: white;}
-
-    h1{
-        font-size: 5em;
-    }
-
-
-    .fa{
-        font-size: 3em;
-        letter-spacing: 1em;
-        transition: all .2s;
-        color: white;
-    }
-
-    .fa:hover{
-        transform: translateY(10px);
-    }
-
-    .fa-youtube-play:hover{
-        color: #cc0000;
-    }
-
-    .fa-twitter:hover{
-        color: #1da1f2;
-    }
-
-    .fa-github:hover{
-        color: #000000;
-    }
-
-
-    .btn:link,
-    .btn:visited {
-        text-transform: uppercase;
-        text-decoration: none;
-        padding: 15px 40px;
-        display: inline-block;
-        border-radius: 100px;
-        transition: all .2s;
-        position: absolute;
-        color: white;
-        font-size: 2.5em;
-    }
-
-    .btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 20px 40px rgba(255, 255, 255, 0.2);
-    }
-
-    .btn:active {
-        transform: translateY(-1px);
-        box-shadow: 0 5px 10px rgba(255, 255, 255, 0.2);
-    }
-
-
+    <link rel='dns-prefetch' href='//s.w.org' />
+    <script type="text/javascript">
+		</script>
+    <style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
 </style>
-{% endblock %}
+    <link rel='stylesheet' id='wp-block-library-css'  href='https://bicyclespeedshop.co/wp-includes/css/dist/block-library/style.min.css?ver=5.5.3' media='all' />
+    <link rel='stylesheet' id='html5blank-css'  href='https://bicyclespeedshop.co/wp-content/themes/bss/style.css?v=1&#038;ver=1.0' media='all' />
+    <script type='text/javascript' src='https://bicyclespeedshop.co/wp-content/themes/bss/js/lib/modernizr-2.7.1.min.js?ver=2.7.1' id='modernizr-js'></script>
+    <script type='text/javascript' src='https://bicyclespeedshop.co/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp' id='jquery-core-js'></script>
+    <script type='text/javascript' src='https://bicyclespeedshop.co/wp-content/themes/bss/js/scripts.js?v=1&#038;ver=1.0.0' id='html5blankscripts-js'></script>
 
+</head>
+<body class="home page-template page-template-templates page-template-home page-template-templateshome-php page page-id-2 sample-page">
+
+<header class="site-header">
+    <div class="container">
+        <div class="shell">
+            <div class="identity">
+                <div class="logo">
+                    <font size="+25">Risa's Website</font>
+
+                </div>
+                <div class="nav-trigger">
+                    <button id="menu-trigger" class="hamburger hamburger--slider" type="button">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                    </button>
+                </div>
+            </div>
+            <div class="navigation nav">
+                <nav class="primary-nav">
+                    <ul>
+                        <li >
+                            <a href="https://repl.it/@risaiwazaki/First-one#README.md">Project</a>
+                        </li>
+                        <li class="dropdown-area">
+                            <span id="dropdown-trigger"><span class="text">Resources</span></span>
+                            <div class="dropdown" id="dropdown">
+                                <a href="http://nighthawkcoders.cf/courses/python/">- <span class="text">Nighthawk Coding</span></a>
+                                <a href="https://apcentral.collegeboard.org/pdf/ap-computer-science-principles-course-and-exam-description.pdf">- <span class="text">AP CSP Course</span></a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="https://github.com/valeriemiliteeva/Bang2.0DB">Group Work</a>
+                        </li>
+                        <li>
+                            <a href="https://padlet.com/risaiwazaki55/ox7mw5z9syhnyw7w">Journal</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="main remodal-bg" role="main">
+    <div class="container">
+        <div class="hero">
+            <div class="contents">
+                <h1 class="feature-headline">
+                        <span class="word" id="word-1">
+                            <span class="chars">AP</span>
+                        </span>
+                    <span class="word" id="word-2">
+                            <span class="chars">Computer</span>
+                        </span>
+                    <span class="word" id="word-3">
+                            <span class="chars">Science</span>
+                        </span>
+                    <span class="word" id="word-4">
+                            <span class="chars">Principles</span>
+                        </span>
+                </h1>
+            </div>
+        </div>
+        <div class="showcase flexslider" id="showcase">
+            <ul class="slides">
+                <li><a href="https://www.python.org/" target="_blank"><img src="https://lh3.googleusercontent.com/proxy/v_ksUjCO8fLRqD0tm3GvtUS6gYgUNUVBxSPCtpJA5PQK64gDanTT3Rq6yGSln1tlCb-wDrxL8FgNmw2ZxFYY3Fl7mKbbaw7EO-mWfrinxQbLsv7LjTZHD9zKHiibHNEjZNQ" alt=""></a></li>
+                <li><a href="https://www.javascript.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/100px-Unofficial_JavaScript_logo_2.svg.png" alt=""></a></li>
+                <li><a href="hhttps://www.cplusplus.com/" target="_blank"><img src="http://www.simpleimageresizer.com/_uploads/photos/b37d93d8/1200px-ISO_C_Logo.svg_3_8.png" alt=""></a></li>
+                <li><a href="https://www.java.com/en/" target="_blank"><img src="http://www.simpleimageresizer.com/_uploads/photos/b37d93d8/351331DF-A088-4717-A805-71EA4C44FFD2_4_5005_c_1_40.jpeg" alt=""></a></li>
+                <li><a href="https://www.ruby-lang.org/en/" target="_blank"><img src="http://www.simpleimageresizer.com/_uploads/photos/b37d93d8/FAAFCFC8-56B2-4379-BF38-94F131F61836_4_5005_c_2_57.jpeg" alt=""></a></li>
+                <li><a href="https://whatwg.org/" target="_blank"><img src="https://www.w3.org/html/logo/img/mark-word-icon.png" alt=""></a></li>
+                <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/" target="_blank"><img src="http://www.simpleimageresizer.com/_uploads/photos/b37d93d8/58645495-1291-4218-8E28-130F32430198_2_120x120.jpeg" alt=""></a></li>
+            </ul>
+        </div>
+        <div class="elab-intro">
+            <div id="flask-padlet" style="margin-bottom: 5vw;">
+                <div class="padlet-embed" style="border:1px solid rgba(0,0,0,0.1);border-radius:2px;box-sizing:border-box;overflow:hidden;position:relative;width:100%;background:#F4F4F4"><p style="padding:0;margin:0"><iframe src="https://padlet.com/embed/onshvns8f7vrrn2l" frameborder="0" allow="camera;microphone;geolocation" style="width:100%;height:100vh;display:block;padding:0;margin:0"></iframe></p><div style="padding:8px;text-align:right;margin:0;"><a href="https://padlet.com?ref=embed" style="padding:0;margin:0;border:none;display:block;line-height:1;height:16px" target="_blank"><img src="https://padlet.net/embeds/made_with_padlet.png" width="86" height="16" style="padding:0;margin:0;background:none;border:none;display:inline;box-shadow:none" alt="Made with Padlet"></a></div></div>
+            </div>
+            <div class="content">
+                <div class="interior">
+                    <img src="" alt="" data-echo="https://static.hudl.com/users/temp/3810370_e7a57bba12ae4ded938d751e12dfc9c6.jpg">
+                    <div class="text">
+                        <h2>Hey Hey  <br> Hey !</h2>
+                            <font size="+1">Welcome to my Flask Website Portfolio. Here are some <em>projects </em> I have been working on to expand my problem solving skills and learn to collaborate through code!</font>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>  <!-- /.main -->
+
+<footer class="site-footer" role="contentinfo">
+    <div class="container">
+        <div class="content">
+        </div>
+
+        <div class="ancillary">
+            <div class="col">
+                <h3>Contact</h3>
+                <p>
+                    <a href="https://github.com/risaiwazaki/Risas_Project">GitHub</a>
+                    <a href="risaiwazaki55@gmail.com">Email</a>
+                    <a href="https://app.slack.com/client/TUDAF53UJ/G01AFKTFA5B/details/pins">Slack</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="a9b5897"><ul></ul><div><script type="text/javascript"> document.getElementById("a9b5897").style.display="none"; </script><script type='text/javascript' src='https://bicyclespeedshop.co/wp-includes/js/wp-embed.min.js?ver=5.5.3' id='wp-embed-js'></script>
+    <script type="text/javascript">
+    </script>
+
+    <script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+         ga('create', 'UA-54956825-1', 'auto');
+         ga('send', 'pageview');
+
+        </script>
+
+    <style>
+            .wdi_feed_thumbnail_1 .wdi_header_img_wrap img {
+                display: none !important;
+            }
+        </style>
+
+
+</body>
 </html>
+
+
+
+
+

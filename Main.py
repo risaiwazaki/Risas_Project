@@ -13,6 +13,9 @@ app = Flask(__name__)
 def home_route():
     return render_template("home1.html", projects=data.setup())
 
+@app.route('/base/')
+def base_route():
+    return render_template("base.html", projects=data.setup())
 
 # connects /hello path of server to render hello.html
 @app.route('/hello/')
@@ -24,6 +27,11 @@ def hello_route():
 @app.route('/flask/')
 def flask_route():
     return render_template("flask.html", projects=data.setup())
+
+@app.route('/about/')
+def about_route():
+    names = "Risa", "Val", "Aidan", "Mike", "Anthony"
+    return render_template("about.html", projects=data.setup(), names=names)
 
 
 if __name__ == "__main__":
