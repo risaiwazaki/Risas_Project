@@ -1,61 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
-{% extends "welcome.py" %}
-
-{% block head %}
-<title>About |  </title>
-{% endblock %}
-
-{% block body %}
-{% for data in datalist: %}
-{% set greeting = data["greeting"] %}
-{% set name = data["name"] %}
-{% set doa = data["doa"] %}
-{% set job = data["job"] %}
-{% set embed = data["embed"] %}
-{% set gist = data["gist"] %}
-
-<h1>{{greeting}} <span style='color:orangered;'></span></h1>
-<ol>
-    <li>Task: <span style='color:midnightblue;'>{{name}}</span></li>
-    {% if 'embed' in data %}
-    <li>{{grade}} link: <span style='color:midnightblue;'>{{embed}}</span></li>
-    <div class="embed-responsive embed-responsive-4by3">
-        <iframe class="embed-responsive-item" src={{embed}}></iframe>
-    </div>
-    {% endif %}
-    {% if 'gist' in data %}
-    <li>{{grade}} link: <span style='color:midnightblue;'>{{embed}}</span></li>
-    <div>
-        <script src={{gist}}></script>
-    </div>
-    {% endif %}
-</ol>
-
-{% endfor %}
-{% endblock %}
+<head>
+    <title>Hey Hey Hey!</title>
+</head>
+<body>
 
 
-        </ul>
+<ul id="navigation">
+    {% for item in navigation %}
+    <li><a href="{{ item.href }}">{{ item.caption }}</a></li>
+    {% endfor %}
+</ul>
 
-    </div>
-</nav>
-
-    <div class="container">
-        <h1>About Me</h1>
-        <ul>
-        <p>
-            {% for name in names %}
-
-                {% if name == 'Risa' %}
-                    <li>{Risa is the best!!<li>{
-                {% else %}
-                    <li>{{ name }}</li>
-                {% endif}
-
-            {% end for%}
-        </ul>
-        </p>
-        </div>
+<h1>Hey Hey Hey!!</h1>
+{{ a_variable }}
+My name is Risa and I'm a junior at Del Norte High School! I'm a beginner at coding but am willing to try new things to get a better understanding on how computer science affects our daily lives.
+So far, I have learned how to implement loops, lists, functions, classes, variables, strings, if statements, dictionaries, and user input into my code. My best part of coding is how I could collaborate with my teammates to create an awesome project that I'm proud of. The "Ah Ha" moments are my absolute favorite moments because after working on my code for hours and finally seeing something work, makes me so relieved knowing that everything was worth it.
+{# a comment #}
+</body>
 </html>

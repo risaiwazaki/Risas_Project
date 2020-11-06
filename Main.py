@@ -30,9 +30,7 @@ def flask_route():
 
 @app.route('/about/')
 def about_route():
-    names = "Risa", "Val", "Aidan", "Mike", "Anthony"
-    return render_template("about.html", projects=data.setup(), names=names)
-
+    return render_template("about.html", projects=data.setup())
 
 if __name__ == "__main__":
     # runs the application on the repl development server
